@@ -1,11 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native'
 import React from 'react'
+import { IcKembali } from '../../../assets'
 
-const Header = ({title, subtitle}) => {
+const Header = ({title, subtitle, onBack}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{ title }</Text>
-      <Text style={styles.subtitle}>{subtitle}</Text>
+      {
+        onBack && (
+          <TouchableNativeFeedback>
+            <View style={styles.kembali}>
+              <IcKembali />
+            </View>
+          </TouchableNativeFeedback>
+        )
+      }
+      
+      <View>
+        <Text style={styles.title}>{ title }</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text> 
+      </View>
     </View>
   )
 }
@@ -17,7 +30,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 30,
         paddingBottom: 24,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     title:{
         color: 'black',
@@ -28,5 +43,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'poppins-light',
         color: '#8D92A3'
+    },
+    kembali: {
+      // backgroundColor: 'yellow',
+      padding: 16,
+      marginRight: 0, 
+      marginLeft: -16,
     }
 })
