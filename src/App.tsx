@@ -1,22 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
-import { SplashScreen } from './pages';
+import { Signin, SplashScreen } from './pages';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 const App = () => {
   return (
-    <SplashScreen />
+    <NavigationContainer>
+      {/* <SplashScreen /> */}
+      <Signin />
+    </NavigationContainer>
   );
 }
 
