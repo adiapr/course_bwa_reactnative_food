@@ -3,7 +3,7 @@ import React from 'react'
 import { SuccessSignupIlustration } from '../../assets'
 import { Button, Gap } from '../../components'
 
-const SuccessSignUp = () => {
+const SuccessSignUp = ({navigation}) => {
   return (
     <View style={styles.page}>
         <SuccessSignupIlustration />
@@ -14,7 +14,7 @@ const SuccessSignUp = () => {
         <Text style={styles.subtitle}>Silahkan memilih menu yang anda inginkan</Text>
         <Gap tinggi={30} />
         <View style={styles.buttonContainer}>
-            <Button text="Temukan Makanan" color="#FFc700" url={() => navigation.navigate('SignUpAddress')} />
+            <Button text="Temukan Makanan" color="#FFc700" url={() => navigation.replace('MainApp')} />
         </View>
     </View>
   )
