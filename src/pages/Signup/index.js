@@ -29,8 +29,6 @@ const SignUp = ({navigation}) => {
             <TextInput label="Passowrd" placeholder="Masukkan dengan benar" />
             <Gap tinggi={24} />
             <Button text="Selanjutnya" color="#FFc700" url={() => navigation.navigate('SignUpAddress')} />
-            {/* <Gap tinggi={12} />
-            <Button text="Buat akun baru" color="#8d92a3" textColor="white" url={() => navigation.navigate('SignUp')} /> */}
         </View>
     </View>
   )

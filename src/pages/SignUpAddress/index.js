@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Button, Gap, Header, Select, TextInput } from '../../components'
 
-const SignUpAddress = () => {
+const SignUpAddress = ({navigation}) => {
   return (
     <View style={styles.page}>
        <Header title="Daftar Akun" subtitle="Daftar dan makan sepuasnya"
@@ -19,10 +19,10 @@ const SignUpAddress = () => {
             <TextInput label="House Number" placeholder="Masukkan nomor rumah" />
             <Gap tinggi={16} />
             
-            <Select />
+            <Select label="Pilih Kota" />
             <Gap tinggi={24} />
             
-            <Button text="Selesaiakn Pendaftaran" color="#FFc700"/>
+            <Button text="Selesaiakn Pendaftaran" color="#FFc700" url={() => navigation.replace('SuccessSignUp')}/>
             {/* <Gap tinggi={12} />
             <Button text="Buat akun baru" color="#8d92a3" textColor="white" url={() => navigation.navigate('SignUp')} /> */}
         </View>
