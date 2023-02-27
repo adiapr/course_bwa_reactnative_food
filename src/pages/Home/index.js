@@ -3,7 +3,21 @@ import React from 'react'
 // import { Image } from 'react-native-svg'
 import { FoodDummy1, FoodDummy2, FoodDummy3, FoodDummy4, ProfileDummy } from '../../assets'
 import { FoodCard, Gap } from '../../components'
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+
+const renderTabBar = props => (
+  <TabBar
+    {...props}
+    indicatorStyle={{ backgroundColor: 'black', height: 3, width: 1, marginLeft: 5  }}
+    style={{ backgroundColor: 'white' }}
+    tabStyle={{ width: 'auto' }}
+    renderLabel={({ route, focused, color }) => (
+      <Text style={{ color: focused ? 'black' : '#8d92a3', margin: 8, fontWeight: focused ? 'bold' : 'normal' }}>
+        {route.title}
+      </Text>
+    )}
+  />
+);
 
 const FirstRoute = () => (
   <View style={{ flex: 1, backgroundColor: '#ff4081' }} />
@@ -26,7 +40,7 @@ const Home = () => {
   const [routes] = React.useState([
     { key: 'first', title: 'Menu Baru' },
     { key: 'second', title: 'Populer' },
-    { key: 'third', title: 'Untukmu' },
+    { key: 'third', title: 'Rekomendasi' },
   ]);
 
   return (
@@ -60,6 +74,7 @@ const Home = () => {
       {/* yarn add react-native-pager-view   */}
       <View style={styles.tabContainer}>
         <TabView
+          renderTabBar={renderTabBar}
           navigationState={{ index, routes }}
           renderScene={renderScene}
           onIndexChange={setIndex}
@@ -102,7 +117,7 @@ const styles = StyleSheet.create({
   },
   page: {
     flex: 1,
-    backgroundColor: 'yellow'
+    // backgroundColor: 'yellow'
   },
   tabContainer: {
     flex: 1
